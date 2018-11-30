@@ -33,8 +33,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.scene = scene
         
         let node = SCNNode()
-        node.geometry = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0)
-        node.geometry?.firstMaterial?.diffuse.contents = UIColor.blue
+//        If all dimensions are identical and chamferRadius is divided by 2, you create a sphere
+        node.geometry = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0.1/2)
+        node.geometry?.firstMaterial?.diffuse.contents = UIColor.red
         node.position = SCNVector3(0, 0, 0)
         self.sceneView.scene.rootNode.addChildNode(node)
     }
